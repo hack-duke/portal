@@ -1,4 +1,4 @@
-// import "../styles/index.css";
+import "../styles/globals.css";
 import Router from "next/router";
 import NProgress from "nprogress"; //nprogress module
 import "../node_modules/nprogress/nprogress.css"; //styles of nprogress
