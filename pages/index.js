@@ -2,11 +2,33 @@ import connectDB from "/utils/mongodb.js";
 
 export default function Home({ data }) {
     console.log(data);
+
+    async function addUser() {
+        const data = await fetch("/api/addUser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                first: "John",
+                last: "Doe",
+                email: "johndoe@gmail.com",
+            }),
+        });
+        const res = await data.json();
+        console.log(res);
+    }
+
     return (
         <>
             <div className="">Hello world!</div>
             {data && data.map((user) => <div>{user.first}</div>)}
-            <div onClick={() => {}}>Connect</div>
+            <div
+                onClick={() => {
+                    addUser();
+                }}>
+                Connect
+            </div>
         </>
     );
 }
